@@ -5,14 +5,17 @@ import Navbar from "./components/navbar"
 import Footer from "./components/footer"
 
 
-function Create(){
+function Create() {
     const navigate = useNavigate()
-    const useApi = "https://687a74a3abb83744b7eceb2d.mockapi.io/api/v1/Crud"
-    const [error , setError] = useState(null);
-    const [isLoading , setIsloading] = useState(false) // laoding add garna lai since fetch garna lai time laagxa
-    const [user , setUser] = useState({
-        name:"",
-        password:"",
+    const useApi = "https://687a74a3abb83744b7eceb2d.mockapi.io/api/v1/blogs"
+    const [error, setError] = useState(null);
+    const [isLoading, setIsloading] = useState(false) // laoding add garna lai since fetch garna lai time laagxa
+    const [user, setUser] = useState({
+        title:"",
+        description:"",
+        subtitle:"",
+        author:"",
+        image:""
     })
 
     // main parts include: handleInput , handleSubmit 
@@ -21,66 +24,106 @@ function Create(){
         handleSubmit : server ma data pathauna usually use hunxa.
     */
 
-    const handleInput = (event)=>{
+    const handleInput = (event) => {
         event.preventDefault();
-        const { name , value } = event.target; // event.target le chai object return garxa form ko hai ta
-        console.log(name , value)
-        setUser({...user , [name]:value}) // yo chai ...user le existing state leuxa ra [name]: ma chai hamro data form ko jaaney vayo
+        const { name, value } = event.target; // event.target le chai object return garxa form ko hai ta
+        console.log(name, value)
+        setUser({ ...user, [name]: value }) // yo chai ...user le existing state leuxa ra [name]: ma chai hamro data form ko jaaney vayo
         console.log(user)
     }
 
-    const handleSubmit = async (event)=>{
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(user)
-        try{
+        try {
             setIsloading(true)
-            const response = await axios.post(useApi, {
-                method:'POST',
+            const response = await axios.post(useApi, user, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                user
             })
             console.log(response)
-            if(response.status == 201){
+            if (response.status == 201) {
                 console.log('Data post successfully')
                 navigate('/')
                 setUser({
-                    name:"",
-                    password:"",
-                })
+                    title: "",
+                    description: "",
+                    subtitle: "",
+                    author: "",
+                    image: ""
+                });
+
             }
-        }catch(error){
+        } catch (error) {
             setError(error.message);
         }
-        finally{
+        finally {
             setIsloading(false);
         }
     }
 
 
 
-    return(
+    return (
         <>
-        <Navbar />
-            <div className="max-w-md mx-auto mt-24">
-                <form className="p-4" onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-                        <input type="email" id="email" onChange={handleInput} name="email" value={user.email} className="w-full py-2 px-3 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:border-blue-500" placeholder="Enter your email address" />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password</label>
-                        <input type="password" id="password" onChange={handleInput} name="password" value={user.password} className="w-full py-2 px-3 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:border-blue-500" placeholder="Enter your password" />
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <a href="#" className="text-gray-500 hover:text-blue-500 focus:outline-none focus:underline transition duration-150 ease-in-out">Forgot
-                            Password?</a>
-                        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-150 ease-in-out">Submit</button>
-                    </div>
+            <Navbar />
+            <div className="max-w-xl mx-auto mt-10 p-6 h-screen bg-white rounded-2xl shadow-md">
+                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create Blog Post</h2>
+                <form onSubmit={handleSubmit} className="space-y-8">
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="Title"
+                        value={user.title}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="subtitle"
+                        placeholder="Subtitle"
+                        value={user.subtitle}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <textarea
+                        name="description"
+                        placeholder="Description"
+                        value={user.description}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        rows="5"
+                        required
+                    ></textarea>
+                    <input
+                        type="text"
+                        name="author"
+                        placeholder="Author"
+                        value={user.author}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="image"
+                        placeholder="Image URL (https://...)"
+                        value={user.image}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+                    >
+                        Create Blog
+                    </button>
                 </form>
             </div>
-        <Footer />
+
+            <Footer />
         </>
     )
 }
