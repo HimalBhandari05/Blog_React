@@ -55,7 +55,8 @@ function Edit() {
         console.log("Submit working")
         try {
             const response = await axios.put(
-                getApi + id,formData,
+                getApi + id,
+                formData,
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -134,19 +135,18 @@ function Edit() {
                         </div>
 
                         {/* Image Upload */}
-                        {/* <div className="mb-4">
+                        <div className="mb-4">
                             <label htmlFor="image" className="block text-gray-700 font-semibold mb-2">
                                 Upload Image
                             </label>
                             <input
-                                type="file"
+                                type="text"
                                 id="image"
                                 name="image"
-                                accept="image/*"
                                 onChange={handleInput}
                                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                             />
-                        </div> */}
+                        </div>
 
                         {/* Submit Button */}
                         <div className="text-center">

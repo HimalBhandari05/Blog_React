@@ -1,28 +1,28 @@
-import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 
+function Card({ blog }) {
+  return (
 
-function Card( {blog}){
-    return(
-            <div className="max-w-sm mx-auto mb-6 md:md-0 flex col-span-12 sm:col-span-6 lg:col-span-4 border p-4 rounded-lg shadow-lg flex-wrap">
-                <Link to={`/cardDetails/${blog.id}`}>
-                    <img srcSet="" src={blog.image} className="w-full mb-4 rounded-lg shadow-none transition duration-500 ease-in-out group-hover:shadow-lg" alt="laravel9-1646792144.jpg"/>
-                    <div className="flex items-center mb-3">
-                    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5 text-white font-display mr-2 capitalize bg-red-500">
-                        {blog.subtitle}
-                    </span>
-                    <p className="font-mono text-xs font-normal opacity-75 text-black">
-                        {blog.createdAt}
-                    </p>
-                    </div>
-                    <p className="font-display max-w-sm text-2xl font-bold leading-tight">
-                    <span className="link-underline link-underline-black text-black">
-                        { blog.title }
-                    </span>
-                    </p>
-                </Link>
-            </div>  
-    )
+    <div className="max-w-sm mx-auto mb-6 h-96 w-96 flex flex-col border p-4 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+      <Link to={`/cardDetails/${blog.id}`}>
+        <img
+          src={blog.image}
+          alt={blog.title}
+          className="w-full mb-4 rounded-lg object-cover h-48"
+        />
+
+        <div className="flex items-center mb-2 justify-between">
+          <span className="text-xs font-bold text-white px-2 py-1 bg-purple-600 rounded">
+            {blog.subtitle}
+          </span>
+          <p className="text-xs text-gray-500">{blog.createdAt}</p>
+        </div>
+        <h2 className="text-xl font-semibold text-black hover:text-purple-600 transition-colors">
+          {blog.title}
+        </h2>
+      </Link>
+    </div>
+  );
 }
 
-export default Card
+export default Card;

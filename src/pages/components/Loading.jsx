@@ -1,29 +1,69 @@
 function Loading() {
     return (
         <>
-            {/* <div aria-label="Loading..." role="status"><svg class="h-12 w-12 animate-spin stroke-gray-500" viewBox="0 0 256 256">
-                <line x1="128" y1="32" x2="128" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-                <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="24"></line>
-                <line x1="224" y1="128" x2="192" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
-                </line>
-                <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="24"></line>
-                <line x1="128" y1="224" x2="128" y2="192" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
-                </line>
-                <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="24"></line>
-                <line x1="32" y1="128" x2="64" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-                <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
-                </line>
-                </svg>
-            </div> */}
+            <div class="container px-6 py-10 mx-auto animate-pulse">
+                {/* <h1 class="w-48 h-2 mx-auto bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
 
-            <div class='flex space-x-2 justify-center items-center w-screen bg-white h-screen dark:invert'>
-                <span class='sr-only'>Loading...</span>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.3s]'></div>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.15s]'></div>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce'></div>
+                <p class="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg sm:w-80 dark:bg-gray-700"></p> */}
+
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600"></div>
+                        
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+                </div>
             </div>
         </>
     )
