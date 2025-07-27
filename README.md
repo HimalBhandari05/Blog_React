@@ -1,12 +1,69 @@
-# React + Vite
+# React Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple **React-based Blog Application** that connects to a fake RESTful API provided by **MockAPI**. It was built to practice API integration, CRUD operations, and component-based design using React. I built this to learn, not just to copy, and I’ve gained a solid understanding of how frontend and mock backends work together.
 
-Currently, two official plugins are available:
+## Run Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Clone the project
 
-## Expanding the ESLint configuration
+```bash
+git clone https://github.com/HimalBhandari05/Blog_React.git
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Go to the project directory
+
+```bash
+cd Blog_React
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+If you are using Tailwind CSS:
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+### Start the server
+
+```bash
+npm start
+```
+
+The app will run at `http://localhost:3000`
+
+## MockAPI Setup
+
+1. Visit [https://mockapi.io](https://mockapi.io)
+2. Create a project
+3. Add a resource named `blogs` with fields like `title`, `content`, `author`, `createdAt`
+4. Copy the base URL and use it in your API calls
+
+## API Example (Axios)
+
+```js
+import axios from 'axios';
+
+const API_URL = 'https://yourproject.mockapi.io/api/v1/blogs';
+
+export const getBlogs = () => axios.get(API_URL);
+export const getBlog = (id) => axios.get(`${API_URL}/${id}`);
+export const createBlog = (data) => axios.post(API_URL, data);
+export const updateBlog = (id, data) => axios.put(`${API_URL}/${id}`, data);
+export const deleteBlog = (id) => axios.delete(`${API_URL}/${id}`);
+```
+
+## Tech Stack
+
+**Client:** React.js, Axios, React Router, Tailwind CSS / CSS
+
+**API:** MockAPI
+
+## Feedback
+
+If you have any feedback, feel free to reach out at [himalbhandari342@gmail.com](mailto:himalbhandari342@gmail.com)
