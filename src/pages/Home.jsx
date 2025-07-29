@@ -78,7 +78,7 @@ function Home() {
             </div>
             </section> */}
 
-            <section class="pt-20 md:pt-40 h-screen w-screen">
+            <section class="pt-20 md:pt-40 overflow-auto h-screen w-screen">
                 <div class="container mx-auto px-8 lg:flex">
                     <div class="text-center lg:text-left lg:w-1/2">
                         <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">Himal Bhandari </h1>
